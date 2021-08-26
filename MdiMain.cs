@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AP1
 {
-    public partial class Form1 : Form
+    public partial class MdiMain : Form
     {
-        public Form1()
+        public MdiMain()
         {
             InitializeComponent();
         }

@@ -45,14 +45,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmAcademyRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmAcademyRecord.Designer.cs">
+      <DependentUpon>FrmAcademyRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEmploymentRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmploymentRecord.Designer.cs">
+      <DependentUpon>FrmEmploymentRecord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MdiMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MdiMain.Designer.cs">
+      <DependentUpon>MdiMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAcademyRecord.resx">
+      <DependentUpon>FrmAcademyRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmploymentRecord.resx">
+      <DependentUpon>FrmEmploymentRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MdiMain.resx">
+      <DependentUpon>MdiMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
