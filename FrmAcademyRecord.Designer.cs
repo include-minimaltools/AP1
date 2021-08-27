@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -53,15 +52,17 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvStudents = new System.Windows.Forms.DataGridView();
+            this.cCarnet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFirstPartial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSecondPartial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cSystematic = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbOrder = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.lblAverage = new System.Windows.Forms.Label();
             this.lblBestStudent = new System.Windows.Forms.Label();
-            this.cSystematic = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cSecondPartial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cFirstPartial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCarnet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -331,21 +332,22 @@
             // tableLayoutPanel6
             // 
             this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.dgvStudents, 0, 0);
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.dgvStudents, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.cbOrder, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 253);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowCount = 3;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.575758F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.62626F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.1828F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(484, 198);
             this.tableLayoutPanel6.TabIndex = 4;
             // 
             // dgvStudents
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            this.dgvStudents.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStudents.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvStudents.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -359,12 +361,78 @@
             this.cSystematic});
             this.dgvStudents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvStudents.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvStudents.Location = new System.Drawing.Point(3, 3);
+            this.dgvStudents.Location = new System.Drawing.Point(3, 43);
             this.dgvStudents.Name = "dgvStudents";
             this.dgvStudents.ReadOnly = true;
             this.dgvStudents.RowHeadersVisible = false;
-            this.dgvStudents.Size = new System.Drawing.Size(478, 192);
+            this.dgvStudents.Size = new System.Drawing.Size(478, 152);
             this.dgvStudents.TabIndex = 0;
+            // 
+            // cCarnet
+            // 
+            this.cCarnet.DataPropertyName = "IdCard";
+            this.cCarnet.HeaderText = "Carnet";
+            this.cCarnet.Name = "cCarnet";
+            this.cCarnet.ReadOnly = true;
+            // 
+            // cName
+            // 
+            this.cName.DataPropertyName = "Name";
+            this.cName.HeaderText = "Nombres";
+            this.cName.Name = "cName";
+            this.cName.ReadOnly = true;
+            // 
+            // cLastName
+            // 
+            this.cLastName.DataPropertyName = "LastName";
+            this.cLastName.HeaderText = "Apellidos";
+            this.cLastName.Name = "cLastName";
+            this.cLastName.ReadOnly = true;
+            // 
+            // cFirstPartial
+            // 
+            this.cFirstPartial.DataPropertyName = "FirstPartial";
+            this.cFirstPartial.HeaderText = "Primer Parcial";
+            this.cFirstPartial.Name = "cFirstPartial";
+            this.cFirstPartial.ReadOnly = true;
+            // 
+            // cSecondPartial
+            // 
+            this.cSecondPartial.DataPropertyName = "SecondPartial";
+            this.cSecondPartial.HeaderText = "Segundo Parcial";
+            this.cSecondPartial.Name = "cSecondPartial";
+            this.cSecondPartial.ReadOnly = true;
+            // 
+            // cSystematic
+            // 
+            this.cSystematic.DataPropertyName = "Systematic";
+            this.cSystematic.HeaderText = "Sistemático";
+            this.cSystematic.Name = "cSystematic";
+            this.cSystematic.ReadOnly = true;
+            // 
+            // cbOrder
+            // 
+            this.cbOrder.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cbOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOrder.FormattingEnabled = true;
+            this.cbOrder.Items.AddRange(new object[] {
+            "Mayor a Menor",
+            "Menor a Mayor"});
+            this.cbOrder.Location = new System.Drawing.Point(379, 18);
+            this.cbOrder.Name = "cbOrder";
+            this.cbOrder.Size = new System.Drawing.Size(102, 21);
+            this.cbOrder.TabIndex = 1;
+            this.cbOrder.SelectedIndexChanged += new System.EventHandler(this.CbOrder_SelectedIndexChanged);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(436, 1);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Ordenar";
             // 
             // tableLayoutPanel7
             // 
@@ -401,48 +469,6 @@
             this.lblBestStudent.TabIndex = 1;
             this.lblBestStudent.Text = "Mejor estudiante: ";
             // 
-            // cSystematic
-            // 
-            this.cSystematic.DataPropertyName = "Systematic";
-            this.cSystematic.HeaderText = "Sistemático";
-            this.cSystematic.Name = "cSystematic";
-            this.cSystematic.ReadOnly = true;
-            // 
-            // cSecondPartial
-            // 
-            this.cSecondPartial.DataPropertyName = "SecondPartial";
-            this.cSecondPartial.HeaderText = "Segundo Parcial";
-            this.cSecondPartial.Name = "cSecondPartial";
-            this.cSecondPartial.ReadOnly = true;
-            // 
-            // cFirstPartial
-            // 
-            this.cFirstPartial.DataPropertyName = "FirstPartial";
-            this.cFirstPartial.HeaderText = "Primer Parcial";
-            this.cFirstPartial.Name = "cFirstPartial";
-            this.cFirstPartial.ReadOnly = true;
-            // 
-            // cLastName
-            // 
-            this.cLastName.DataPropertyName = "LastName";
-            this.cLastName.HeaderText = "Apellidos";
-            this.cLastName.Name = "cLastName";
-            this.cLastName.ReadOnly = true;
-            // 
-            // cName
-            // 
-            this.cName.DataPropertyName = "Name";
-            this.cName.HeaderText = "Nombres";
-            this.cName.Name = "cName";
-            this.cName.ReadOnly = true;
-            // 
-            // cCarnet
-            // 
-            this.cCarnet.DataPropertyName = "IdCard";
-            this.cCarnet.HeaderText = "Carnet";
-            this.cCarnet.Name = "cCarnet";
-            this.cCarnet.ReadOnly = true;
-            // 
             // FrmAcademyRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -451,6 +477,7 @@
             this.Controls.Add(this.tableLayoutPanel7);
             this.Controls.Add(this.tableLayoutPanel6);
             this.Controls.Add(this.tableLayoutPanel5);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmAcademyRecord";
             this.Text = "FrmAcademyRecord";
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -463,6 +490,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
@@ -504,5 +532,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cFirstPartial;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSecondPartial;
         private System.Windows.Forms.DataGridViewTextBoxColumn cSystematic;
+        private System.Windows.Forms.ComboBox cbOrder;
+        private System.Windows.Forms.Label label7;
     }
 }

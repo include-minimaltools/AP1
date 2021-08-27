@@ -12,9 +12,44 @@ namespace AP1
         public FrmAcademyRecord()
         {
             InitializeComponent();
+            TopLevel = false;
+            Dock = DockStyle.Fill;
         }
 
         #region Events
+        private void CbOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbOrder.SelectedIndex == 0)
+                    MajorBubble(false);
+                else
+                    MajorBubble();
+                
+                dgvStudents.DataSource = database.ToList();
+            }   
+            catch
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado, contactarse con el desarrollador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void MajorBubble(bool upward = true)
+        {
+            for (int i = students - 1; i > 0; i--)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    if ((database[j].FinalNote > database[j + 1].FinalNote && upward) || (database[j].FinalNote < database[j + 1].FinalNote && !upward))
+                    {
+                        Student aux = database[j];
+                        database[j] = database[j + 1];
+                        database[j + 1] = aux;
+                    }
+                }
+            }
+        }
+
         private void BtnInsert_Click(object sender, EventArgs e)
         {
             try
@@ -113,7 +148,9 @@ namespace AP1
                 FirstPartial = int.Parse(txtFirstPartial.Text),
                 SecondPartial = int.Parse(txtSecondPartial.Text),
                 Systematic = int.Parse(txtSystematic.Text),
-                FinalNote = int.Parse(txtFirstPartial.Text) + int.Parse(txtSecondPartial.Text) + int.Parse(txtSystematic.Text)
+                FinalNote = Math.Round(
+                    (double)(int.Parse(txtFirstPartial.Text) + int.Parse(txtSecondPartial.Text) + int.Parse(txtSystematic.Text)) / 3
+                    , 2)
             };
         }
 
@@ -188,5 +225,7 @@ namespace AP1
             return -1;
         }
         #endregion
+
+        
     }
 }

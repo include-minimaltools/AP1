@@ -12,8 +12,11 @@ namespace AP1
         public FrmEmploymentRecord()
         {
             InitializeComponent();
+            TopLevel = false;
+            Dock = DockStyle.Fill;
         }
 
+        #region Events
         private void BtnInsert_Click(object sender, EventArgs e)
         {
             try
@@ -93,7 +96,9 @@ namespace AP1
                 btnInsert.Enabled = true;
             }
         }
+        #endregion
 
+        #region Methods
         private void SaveEmployee(int index)
         {
             database[index] = new Employee()
@@ -171,5 +176,6 @@ namespace AP1
             }
                 
         }
+        #endregion
     }
 }

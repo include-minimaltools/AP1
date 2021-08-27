@@ -10,7 +10,7 @@ namespace AP1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmEmploymentRecord());
+            Application.Run(new MdiMain());
         }
     }
 }

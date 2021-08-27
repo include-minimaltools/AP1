@@ -346,6 +346,7 @@
             this.ClientSize = new System.Drawing.Size(484, 451);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmEmploymentRecord";
             this.Text = "FrmEmploymentRecord";
             this.tableLayoutPanel1.ResumeLayout(false);
