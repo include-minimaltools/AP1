@@ -54,12 +54,16 @@
             this.cSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cBonus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNetSalary = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbOrder = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -266,12 +270,13 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 98.05615F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 9F));
             this.tableLayoutPanel2.Controls.Add(this.dgvEmployee, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 204);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.424242F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 97.57576F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.21969F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.78031F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(484, 247);
             this.tableLayoutPanel2.TabIndex = 1;
@@ -291,10 +296,10 @@
             this.cBonus,
             this.cNetSalary});
             this.dgvEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvEmployee.Location = new System.Drawing.Point(12, 8);
+            this.dgvEmployee.Location = new System.Drawing.Point(12, 36);
             this.dgvEmployee.Name = "dgvEmployee";
             this.dgvEmployee.RowHeadersVisible = false;
-            this.dgvEmployee.Size = new System.Drawing.Size(459, 227);
+            this.dgvEmployee.Size = new System.Drawing.Size(459, 199);
             this.dgvEmployee.TabIndex = 0;
             // 
             // cIdentificationCard
@@ -339,6 +344,51 @@
             this.cNetSalary.HeaderText = "Salario Neto";
             this.cNetSalary.Name = "cNetSalary";
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 154F));
+            this.tableLayoutPanel5.Controls.Add(this.label6, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.cbOrder, 2, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(12, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(459, 27);
+            this.tableLayoutPanel5.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(232, 7);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Ordenar con:";
+            // 
+            // cbOrder
+            // 
+            this.cbOrder.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cbOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cbOrder.FormattingEnabled = true;
+            this.cbOrder.Items.AddRange(new object[] {
+            "Burbuja Mayor",
+            "Burbuja Menor",
+            "Burbuja con Señal",
+            "Sacudida",
+            "Inserción Directa",
+            "Inserción Indirecta"});
+            this.cbOrder.Location = new System.Drawing.Point(307, 3);
+            this.cbOrder.Name = "cbOrder";
+            this.cbOrder.Size = new System.Drawing.Size(149, 21);
+            this.cbOrder.TabIndex = 2;
+            this.cbOrder.SelectedIndexChanged += new System.EventHandler(this.CbOrder_SelectedIndexChanged);
+            // 
             // FrmEmploymentRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -356,6 +406,8 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -388,5 +440,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cSalary;
         private System.Windows.Forms.DataGridViewTextBoxColumn cBonus;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNetSalary;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbOrder;
     }
 }

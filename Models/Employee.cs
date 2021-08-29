@@ -10,6 +10,5 @@ namespace AP1.Models
         public double Bonus { get; set; }
         public double NetSalary { get; set; }
         public int Sons { get; set; }
-
     }
 }

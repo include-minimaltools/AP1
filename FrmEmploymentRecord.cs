@@ -14,9 +14,25 @@ namespace AP1
             InitializeComponent();
             TopLevel = false;
             Dock = DockStyle.Fill;
+            cbOrder.SelectedIndex = 0;
         }
 
         #region Events
+        private void CbOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (employees == 0)
+                    return;
+
+                LoadDataTable();
+            }
+            catch
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado, contactarse con el desarrollador", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void BtnInsert_Click(object sender, EventArgs e)
         {
             try
@@ -99,6 +115,35 @@ namespace AP1
         #endregion
 
         #region Methods
+        private void LoadDataTable()
+        {
+            switch (cbOrder.SelectedIndex)
+            {
+                case 0:
+                    MajorBubble();
+                    break;
+                case 1:
+                    MinorBubble();
+                    break;
+                case 2:
+                    SignBubble();
+                    break;
+                case 3:
+                    ShakerSort();
+                    break;
+                case 4:
+                    DirectInsert();
+                    break;
+                case 5:
+                    Shell();
+                    break;
+                default:
+                    break;
+            }
+
+            dgvEmployee.DataSource = database.ToList();
+        }
+
         private void SaveEmployee(int index)
         {
             database[index] = new Employee()
@@ -175,6 +220,127 @@ namespace AP1
                 database[i].NetSalary = database[i].Salary + database[i].Bonus;
             }
                 
+        }
+        #endregion
+
+        #region Sorting Methods
+        private void InvertPosition(int pos1, int pos2)
+        {
+            var temp = database[pos1];
+            database[pos1] = database[pos2];
+            database[pos2] = temp;
+        }
+
+        private void MajorBubble(bool upward = true)
+        {
+            for (int i = employees - 1; i > 0; i--)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    if ((database[j].Salary > database[j + 1].Salary && upward) || (database[j].Salary < database[j + 1].Salary && !upward))
+                    {
+                        InvertPosition(j, j + 1);
+                    }
+                }
+            }
+        }
+
+        private void DirectInsert()
+        {
+            for (int i = 1; i < employees; i++)
+            {
+                var temp = database[i];
+                int k = i - 1;
+
+                while ((k >= 0) && (temp.Salary < database[k].Salary))
+                {
+                    database[k + 1] = database[k];
+                    k--;
+                }
+                database[k + 1] = temp;
+            }
+        }
+
+        private void Shell()
+        {
+            bool hasChange;
+            int inta = employees;
+
+            while (inta > 0)
+            {
+                inta = (int)(inta / 2);
+                hasChange = true;
+                while (hasChange)
+                {
+                    hasChange = false;
+                    for (int i = 0; (i + inta) <= (employees - 1); i++)
+                    {
+                        if (database[i].Salary > database[i + inta].Salary)
+                        {
+                            InvertPosition(i, i + inta);
+                            hasChange = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ShakerSort()
+        {
+            int left = 1, right = employees - 1, k = right;
+
+            while (right >= left)
+            {
+                for (int i = right; i >= left; i--)
+                {
+                    if (database[i - 1].Salary > database[i].Salary)
+                    {
+                        InvertPosition(i - 1, i);
+                        k = i;
+                    }
+                }
+                left = k + 1;
+                for (int i = left; i <= right; i++)
+                {
+                    if (database[i - 1].Salary > database[i].Salary)
+                    {
+                        InvertPosition(i - 1, i);
+                        k = i;
+                    }
+                }
+                right = k - 1;
+            }
+        }
+
+        private void SignBubble()
+        {
+            bool isFinish = false;
+            for (int i = 0; i < employees - 1 && isFinish == false; i++)
+            {
+                isFinish = true;
+                for (int j = 0; j < employees - 1; j++)
+                {
+                    if (database[j].Salary > database[j + 1].Salary)
+                    {
+                        InvertPosition(j, j + 1);
+                        isFinish = false;
+                    }
+                }
+            }
+        }
+
+        private void MinorBubble()
+        {
+            for (int i = 1; i < employees; i++)
+            {
+                for (int j = employees - 1; j > 0; j--)
+                {
+                    if (database[j - 1].Salary > database[j].Salary)
+                    {
+                        InvertPosition(j, j - 1);
+                    }
+                }
+            }
         }
         #endregion
     }

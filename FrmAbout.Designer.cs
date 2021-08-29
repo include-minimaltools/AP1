@@ -53,10 +53,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::AP1.Properties.Resources.covpag1;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 30);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(30);
+            this.pictureBox1.Location = new System.Drawing.Point(50, 50);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(50);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(407, 434);
+            this.pictureBox1.Size = new System.Drawing.Size(367, 394);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

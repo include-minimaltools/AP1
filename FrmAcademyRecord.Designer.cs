@@ -414,13 +414,18 @@
             // 
             this.cbOrder.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.cbOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cbOrder.FormattingEnabled = true;
             this.cbOrder.Items.AddRange(new object[] {
-            "Mayor a Menor",
-            "Menor a Mayor"});
-            this.cbOrder.Location = new System.Drawing.Point(379, 18);
+            "Burbuja Mayor",
+            "Burbuja Menor",
+            "Burbuja con Señal",
+            "Sacudida",
+            "Inserción Directa",
+            "Inserción Indirecta"});
+            this.cbOrder.Location = new System.Drawing.Point(321, 18);
             this.cbOrder.Name = "cbOrder";
-            this.cbOrder.Size = new System.Drawing.Size(102, 21);
+            this.cbOrder.Size = new System.Drawing.Size(160, 21);
             this.cbOrder.TabIndex = 1;
             this.cbOrder.SelectedIndexChanged += new System.EventHandler(this.CbOrder_SelectedIndexChanged);
             // 
@@ -428,11 +433,11 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(436, 1);
+            this.label7.Location = new System.Drawing.Point(362, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.Size = new System.Drawing.Size(119, 13);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Ordenar";
+            this.label7.Text = "Métodos de ordenación";
             // 
             // tableLayoutPanel7
             // 
